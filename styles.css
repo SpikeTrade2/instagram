@@ -1,0 +1,91 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  
+  /* Background image properties */
+  background-image: url('spike.jpg');
+  background-size: cover; /* This makes the image cover the entire background */
+  background-repeat: no-repeat; /* This prevents the image from repeating */
+  background-attachment: fixed; /* This makes the background stay in place when scrolling */
+  
+  /* Fallback background color - this will be visible if spike.jpg fails to load */
+  background-color: #f0f0f0; /* Or #e5e5e5, choose the one you prefer */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-section {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.top-section img {
+  margin: 20px auto;
+  display: block;
+  width: 150px;
+  height: auto;
+}
+
+.bottom-section {
+  padding: 20px;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 150px;
+  resize: none;
+}
+
+button[type="submit"] {
+  background-color: #03A9F4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #039BE5;
+}
