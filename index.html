@@ -10,6 +10,11 @@
       <div class="top-section">
         <img src="logo2.jpg" alt="SpikeTrade Logo" height="240" width="500">
       </div>
+      
+      
+      <!-- PayPal Button Container -->
+        <div id="paypal-button-container"></div>
+      
       <div class="bottom-section">
         <p> To order a beta copy of the TradingView app, send us a message!</p>
         <br>
@@ -28,5 +33,43 @@
         </form>
       </div>
     </div>
+  <!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+
+<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '4.99',
+            currency_code: 'USD'
+          },
+          description: 'Digital Code Purchase'
+        }]
+      });
+    },
+    
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        // Payment successful
+        console.log('Payment completed by ' + details.payer.name.given_name);
+        
+        // Show success message
+        document.getElementById('paypal-button-container').innerHTML = 
+          '<p style="color: green; font-weight: bold;">Payment Successful! Check your email for the digital code.</p>';
+        
+        // Here you would typically send payment info to your backend
+        // For now, this is just frontend handling
+      });
+    },
+    
+    onError: function(err) {
+      console.error('PayPal error:', err);
+      alert('Payment failed. Please try again.');
+    }
+    
+  }).render('#paypal-button-container');
+</script>
   </body>
 </html>
